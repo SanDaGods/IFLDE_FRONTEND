@@ -121,10 +121,10 @@ document.addEventListener("DOMContentLoaded", () => {
       "active-verification",
       "active-new-password"
     );
-    window.location.href = "https://eteeap-domain-new.vercel.app/index.html";
+    window.location.href = "https://ifldefrontend-production.up.railway.app/index.html";
   });
 
-  const BACKEND_URL = "https://eteeapbackend-production.up.railway.app";
+  const BACKEND_URL = "https://iflde-backend-production.up.railway.app";
 
   // Registration
   document.getElementById("registerForm")?.addEventListener("submit", async (event) => {
@@ -181,7 +181,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showNotification("Registration successful! Please fill out your personal information.");
       localStorage.setItem("userId", responseBody.data.userId);
       localStorage.setItem("applicantId", responseBody.data.applicantId);
-      window.location.href = "https://eteeap-domain-new.vercel.app/frontend/client/applicant/info/information.html";
+      window.location.href = "https://ifldefrontend-production.up.railway.app/frontend/client/applicant/info/information.html";
     } catch (error) {
       console.error("Registration error:", error);
       showNotification(`Registration failed: ${error.message}`);
@@ -230,7 +230,7 @@ document.addEventListener("DOMContentLoaded", () => {
       showNotification("Login successful!");
       localStorage.setItem("userId", responseBody.data.userId);
       localStorage.setItem("userEmail", responseBody.data.email);
-      window.location.href = "https://eteeap-domain-new.vercel.app/frontend/client/applicant/timeline/timeline.html";
+      window.location.href = "https://ifldefrontend-production.up.railway.app/frontend/client/applicant/timeline/timeline.html";
     } catch (error) {
       console.error("Login error:", error);
       showNotification(error.message || "Login failed. Please try again.");
