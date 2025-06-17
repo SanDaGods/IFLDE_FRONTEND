@@ -319,7 +319,7 @@ hr {
 
 /* Footer */
 .footer {
-    background: linear-gradient(to top, #532989, #dfd9eccc), url('../img/background-footer.png') no-repeat top center;
+    background: linear-gradient(to top, #532989, #dfd9eccc), url('../frontend/client/img/background-footer.png') no-repeat top center;
     background-size: cover;
     padding: 40px 0 10px;
     position: relative;
