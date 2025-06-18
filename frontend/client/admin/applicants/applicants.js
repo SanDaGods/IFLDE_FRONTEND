@@ -373,7 +373,7 @@ function updateUserDisplay(user) {
 async function handleLogout() {
   showLoading();
   try {
-    const authCheck = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api//admin/auth-status', {
+    const authCheck = await fetch('https://iflde-backend-production.up.railway.app//frontend/api//admin/auth-status', {
       credentials: 'include'
     });
     
@@ -383,11 +383,10 @@ async function handleLogout() {
       return;
     }
 
-    const response = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api//admin/logout', {
+    const response = await fetch('https://iflde-backend-production.up.railway.app//frontend/api//admin/logout', {
       method: 'POST',
       credentials: 'include'
     });
-    
     const data = await response.json();
     if (data.success) {
       showNotification('Logout successful! Redirecting...', 'success');

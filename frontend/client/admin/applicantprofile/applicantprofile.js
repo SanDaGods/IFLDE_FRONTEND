@@ -637,7 +637,7 @@ async function showAssignAssessorModal() {
 
 function updateStatus() {
   const status = document.getElementById("status").value;
-  fetch(`https://eteeapbackend-production.up.railway.app/frontend/api//api/progress`, {
+  fetch(`https://iflde-backend-production.up.railway.app/frontend/api/progress`, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({ status })

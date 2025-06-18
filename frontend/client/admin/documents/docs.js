@@ -122,7 +122,7 @@ async function handleLogout() {
       return;
     }
 
-    const response = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api//admin/logout', {
+    const response = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api/admin/logout', {
       method: 'POST',
       credentials: 'include'
     });
