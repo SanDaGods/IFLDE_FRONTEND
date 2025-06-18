@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ETEEAP Tracking System</title>
-    <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/index.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -16,7 +16,7 @@
     <script>
         window.BACKEND_URL = "https://iflde-backend-production.up.railway.app";
     </script>
-
+    
     <header>
         <div class="logo-container">
             <img src="/img/RTU_Logo.png" class="logo1" alt="RTU Logo">
@@ -235,9 +235,6 @@
 
     <!-- Home Page Animation -->
  <script src="https://unpkg.com/scrollreveal"></script>
- <script src="app.js"></script>
-
-
     <script>
         // Scroll to the top on page refresh
         window.addEventListener("beforeunload", () => {
@@ -262,6 +259,12 @@
             sr.reveal(selector, options);
         });
     </script>
+
+<!-- In index.html -->
+<script>
+  window.BACKEND_URL = "https://iflde-backend-production.up.railway.app";
+</script>
+<script src="app.js"></script>
 
 </body>
 </html>
