@@ -255,26 +255,27 @@
         });
     </script>
   <script>
-    async function callBackend() {
-        const backendURL = 
-            window.location.hostname === "localhost" 
-            ? "https://eteeapbackend-production.up.railway.app/frontend/api/" 
-            : "https://eteeapbackend-production.up.railway.app/frontend/api/";
+async function callBackend() {
+    const backendURL = 
+        window.location.hostname === "localhost" 
+        ? "https://iflde-backend-production.up.railway.app"
+        : "https://iflde-backend-production.up.railway.app";
 
-        try {
-            const response = await fetch(`${backendURL}/api/test`, {
-                method: "GET",
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            });
+    try {
+        const response = await fetch(`${backendURL}/api/test`, {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            credentials: "include" // include cookies if needed
+        });
 
-            const result = await response.json();
-            console.log("Backend response:", result);
-        } catch (err) {
-            console.error("Error connecting to backend:", err);
-        }
+        const result = await response.json();
+        console.log("Backend response:", result);
+    } catch (err) {
+        console.error("Error connecting to backend:", err);
     }
+}
 
     window.onload = callBackend;
 </script>
