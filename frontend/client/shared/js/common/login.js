@@ -5,7 +5,7 @@ async function handleLogin(event, role) {
     const password = document.getElementById(`${role}-password`).value;
 
     try {
-        const response = await fetch("https://eteeapbackend-production.up.railway.app/frontend/api//login", {
+        const response = await fetch("https://iflde-backend-production.up.railway.app/api/login", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ email, password }),

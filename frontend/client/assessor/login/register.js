@@ -29,7 +29,7 @@ document.getElementById("registerForm").addEventListener("submit", async (e) => 
   }
 
   try {
-    const response = await fetch("https://eteeapbackend-production.up.railway.app/frontend/api//assessor/register", {
+    const response = await fetch("https://iflde-backend-production.up.railway.app/api/assessor/register", {
       method: "POST",
       headers: { 
         "Content-Type": "application/json",

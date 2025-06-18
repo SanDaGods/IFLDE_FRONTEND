@@ -6,7 +6,7 @@
  */
 async function protectPage() {
   try {
-    const response = await fetch("https://eteeapbackend-production.up.railway.app/frontend/api//auth-status", {
+    const response = await fetch("https://iflde-backend-production.up.railway.app/api/auth-status", {
       credentials: "include",
     });
 
@@ -30,7 +30,7 @@ async function handleLogout() {
   showLoading();
   try {
     // First verify authentication status
-    const authCheck = await fetch("https://eteeapbackend-production.up.railway.app/frontend/api//auth-status", {
+    const authCheck = await fetch("https://iflde-backend-production.up.railway.app/api/auth-status", {
       credentials: "include",
     });
 
@@ -42,7 +42,7 @@ async function handleLogout() {
     }
 
     // If authenticated, proceed with logout
-    const response = await fetch("https://eteeapbackend-production.up.railway.app/frontend/api//logout", {
+    const response = await fetch("https://iflde-backend-production.up.railway.app/api/logout", {
       method: "POST",
       credentials: "include",
     });

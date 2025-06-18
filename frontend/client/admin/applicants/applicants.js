@@ -330,7 +330,7 @@ function initializeLogout() {
 
 async function loadAdminInfo() {
   try {
-    const response = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api//admin/auth-status', {
+    const response = await fetch('https://iflde-backend-production.up.railway.app/admin/auth-status', {
       credentials: 'include'
     });
     
@@ -373,7 +373,7 @@ function updateUserDisplay(user) {
 async function handleLogout() {
   showLoading();
   try {
-    const authCheck = await fetch('https://iflde-backend-production.up.railway.app//frontend/api//admin/auth-status', {
+    const authCheck = await fetch('https://iflde-backend-production.up.railway.app/api/admin/auth-status', {
       credentials: 'include'
     });
     
@@ -383,7 +383,7 @@ async function handleLogout() {
       return;
     }
 
-    const response = await fetch('https://iflde-backend-production.up.railway.app//frontend/api//admin/logout', {
+    const response = await fetch('https://iflde-backend-production.up.railway.app/api/admin/logout', {
       method: 'POST',
       credentials: 'include'
     });

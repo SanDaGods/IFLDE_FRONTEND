@@ -1,5 +1,5 @@
 // Admin Assessor Profile Controller - Complete Fixed Version
-const API_BASE_URL = "https://eteeapbackend-production.up.railway.app/frontend/api/";
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app/";
 let currentAssessor = null;
 
 // DOM Elements

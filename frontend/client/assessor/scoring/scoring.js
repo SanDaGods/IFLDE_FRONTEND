@@ -5,7 +5,7 @@
 let currentApplicantId = null;
 let currentEvaluation = null;
 let currentApplicantData = null;
-const API_BASE_URL = "https://eteeapbackend-production.up.railway.app/frontend/api/";
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app/";
 const DOCUMENTS_BASE_PATH = "/documents/";
 
 // ========================

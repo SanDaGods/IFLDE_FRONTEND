@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://eteeapbackend-production.up.railway.app/api/";
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app/";
 let students = [];
 let courses = [];
 let currentSection = "dashboard";
@@ -422,7 +422,7 @@ async function handleLogout() {
     showLoading();
     try {
         // First check if we're actually logged in
-        const authCheck = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api//assessor/auth-status', {
+        const authCheck = await fetch('https://iflde-backend-production.up.railway.app/api/assessor/auth-status', {
             credentials: 'include'
         });
         
@@ -434,7 +434,7 @@ async function handleLogout() {
         }
 
         // If authenticated, proceed with logout
-        const response = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api//assessor/logout', {
+        const response = await fetch('https://iflde-backend-production.up.railway.app/api/assessor/logout', {
             method: 'POST',
             credentials: 'include'
         });
@@ -465,7 +465,7 @@ async function handleLogout() {
 // Add this function to fetch and display user info
 async function loadAssessorInfo() {
     try {
-        const response = await fetch('https://eteeapbackend-production.up.railway.app/frontend/api//assessor/auth-status', {
+        const response = await fetch('https://iflde-backend-production.up.railway.app/api/assessor/auth-status', {
             credentials: 'include'
         });
         
