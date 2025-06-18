@@ -4,30 +4,35 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ETEEAP Tracking System</title>
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="../frontend/client/img/RTU Logo.png">
+    <link rel="icon" type="image/x-icon" href="/img/RTU_Logo.png">
 </head>
 
 <body>
+    <!-- Define BACKEND_URL before any scripts run -->
+    <script>
+        window.BACKEND_URL = "https://iflde-backend-production.up.railway.app";
+    </script>
+
     <header>
         <div class="logo-container">
-            <img src="../frontend/client/img/RTU Logo.png" class="logo1">
-            <img src="../frontend/client/img/IFLDE Logo.png" class="logo2">
+            <img src="/img/RTU_Logo.png" class="logo1" alt="RTU Logo">
+            <img src="/img/IFLDE_Logo.png" class="logo2" alt="IFLDE Logo">
             <div class="logo-text-container">
                 <h2 class="logo-text">Rizal Technological University</h2>
                 <p class="logo-subtext">Institute of Flexible Learning & Digital Education</p>
             </div>
         </div>
-               <nav class="nav">
+        <nav class="nav">
             <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="frontend/client/applicant/about/about.html">About Us</a></li>
-                <li><a href="frontend/client/applicant/downloads/downloads.html">Downloads</a></li>
-                <li><a href="frontend/client/applicant/news/news.html">News</a></li>
-                <button class="btnLogin-popup" onclick="window.location.href='frontend/client/applicant/login/login.html';">Login</button>
+                <li><a href="/">Home</a></li>
+                <li><a href="/about">About Us</a></li>
+                <li><a href="/downloads">Downloads</a></li>
+                <li><a href="/news">News</a></li>
+                <button class="btnLogin-popup" onclick="window.location.href='/login';">Login</button>
             </ul>
         </nav>
     </header>
@@ -230,6 +235,9 @@
 
     <!-- Home Page Animation -->
  <script src="https://unpkg.com/scrollreveal"></script>
+ <script src="app.js"></script>
+
+
     <script>
         // Scroll to the top on page refresh
         window.addEventListener("beforeunload", () => {
@@ -254,30 +262,6 @@
             sr.reveal(selector, options);
         });
     </script>
-  <script>
-async function callBackend() {
-    const backendURL = 
-        window.location.hostname === "localhost" 
-        ? "https://iflde-backend-production.up.railway.app"
-        : "https://iflde-backend-production.up.railway.app";
 
-    try {
-        const response = await fetch(`${backendURL}/api/test`, {
-            method: "GET",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            credentials: "include" // include cookies if needed
-        });
-
-        const result = await response.json();
-        console.log("Backend response:", result);
-    } catch (err) {
-        console.error("Error connecting to backend:", err);
-    }
-}
-
-    window.onload = callBackend;
-</script>
 </body>
 </html>
