@@ -258,3 +258,10 @@ function showNotification(message, type = "info") {
     setTimeout(() => notification.remove(), 500);
   }, 3000);
 }
+
+
+// Example fetch in your frontend code
+fetch('https://iflde-backend-production.up.railway.app/api/test')
+  .then(response => response.json())
+  .then(data => console.log('Backend response:', data))
+  .catch(error => console.error('Connection error:', error));
