@@ -1,3 +1,5 @@
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app";
+
 document.addEventListener("DOMContentLoaded", () => {
   const wrapper = document.querySelector(".wrapper");
 
