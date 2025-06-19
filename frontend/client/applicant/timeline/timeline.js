@@ -38,7 +38,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
     // New Timeline Logic
- async function fetchApplicantStatus() {
+async function fetchApplicantStatus() {
   try {
     const response = await fetch(`${API_BASE_URL}/api/auth/auth-status`, {
       credentials: 'include' // Required for cookies
@@ -55,7 +55,10 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   } catch (error) {
     console.error('Error checking auth status:', error);
-    window.location.href = "https://ifldefrontend-production.up.railway.app/frontend/client/applicant/login/login.html";
+    // Don't redirect on error, just handle it gracefully
+    // You could show an error message to the user instead
+    // Example:
+    // showErrorNotification("Failed to check authentication status. Please try again later.");
   }
 }
 
