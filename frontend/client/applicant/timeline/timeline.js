@@ -55,7 +55,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   } catch (error) {
     console.error('Error checking auth status:', error);
-    window.location.href = "https://ifldefrontend-production.up.railway.app/login.html";
+    window.location.href = "https://ifldefrontend-production.up.railway.app/frontend/client/applicant/login/login.html";
   }
 }
 
