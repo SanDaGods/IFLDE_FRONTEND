@@ -1,3 +1,5 @@
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app";
+
 document.addEventListener("DOMContentLoaded", function () {
     // Authentication and dropdown code remains the same
     const logoutButton = document.querySelector("#logout");
@@ -38,7 +40,7 @@ document.addEventListener("DOMContentLoaded", function () {
     // New Timeline Logic
     async function fetchApplicantStatus() {
         try {
-            const response = await fetch('/applicant/auth-status');
+            const response = await fetch('https://iflde-backend-production.up.railway.app/applicant/auth-status');
             const data = await response.json();
             
             if (data.authenticated && data.user) {
