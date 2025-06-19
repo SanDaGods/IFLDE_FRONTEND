@@ -1,4 +1,4 @@
-const API_BASE_URL = "https://iflde-backend-production.up.railway.app/";
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app";
 let students = [];
 let courses = [];
 let currentSection = "dashboard";

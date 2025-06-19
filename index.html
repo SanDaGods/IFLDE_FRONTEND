@@ -258,8 +258,8 @@
     async function callBackend() {
         const backendURL = 
             window.location.hostname === "localhost" 
-            ? "https://iflde-backend-production.up.railway.app/" 
-            : "https://eteeapbackend-production.up.railway.app/";
+            ? "https://iflde-backend-production.up.railway.app" 
+            : "https://eteeapbackend-production.up.railway.app";
 
         try {
             const response = await fetch(`${backendURL}/api/test`, {

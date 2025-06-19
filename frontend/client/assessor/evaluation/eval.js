@@ -1,5 +1,5 @@
 const DOCUMENTS_BASE_PATH = "/documents/";
-const API_BASE_URL = "https://iflde-backend-production.up.railway.app/";
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app";
 let currentPdfUrl = '';
 let currentUser = null;
 let currentApplicant = null;

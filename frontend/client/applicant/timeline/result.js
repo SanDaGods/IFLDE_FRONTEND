@@ -1,5 +1,5 @@
 // Constants
-const API_BASE_URL = "https://iflde-backend-production.up.railway.app/";
+const API_BASE_URL = "https://iflde-backend-production.up.railway.app";
 
 // DOM Elements
 const applicantNameElement = document.getElementById('applicantName');
