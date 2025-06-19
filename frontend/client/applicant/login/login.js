@@ -1,6 +1,9 @@
+import api from '../../../../services/api.js';
+
 document.addEventListener("DOMContentLoaded", () => {
   const wrapper = document.querySelector(".wrapper");
 
+  
   if (wrapper) {
     wrapper.classList.add("active-popup");
   }
