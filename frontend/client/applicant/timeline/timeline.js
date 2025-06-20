@@ -37,27 +37,30 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // New Timeline Logic
 async function fetchApplicantStatus() {
   try {
     const response = await fetch(`${API_BASE_URL}/applicant/auth-status`, {
-      credentials: 'include'
+      credentials: 'include' // Required for cookies
     });
     
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      console.error(`HTTP error! Status: ${response.status}`);
+      return; // Exit early if the request fails
     }
     
     const data = await response.json();
+    console.log("Auth Status Response:", data); // Log full response
     
     if (data.authenticated) {
+      console.log("✅ User is authenticated. Status:", data.user.status);
       updateTimeline(data.user.status);
     } else {
-      window.location.href = "../Login/login.html";
+      console.log("❌ User is NOT authenticated. Reason:", data.message || "No token/invalid token");
+      // No redirect, just log the issue
     }
   } catch (error) {
     console.error('Error checking auth status:', error);
-    // Handle error gracefully
+    // No redirect, just log the error
   }
 }
 
