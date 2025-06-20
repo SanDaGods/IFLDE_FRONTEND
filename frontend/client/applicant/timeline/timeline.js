@@ -40,25 +40,24 @@ document.addEventListener("DOMContentLoaded", function () {
     // New Timeline Logic
 async function fetchApplicantStatus() {
   try {
-    const response = await fetch(`${API_BASE_URL}/api/auth/auth-status`, {
-      credentials: 'include' // Required for cookies
+    const response = await fetch(`${API_BASE_URL}/applicant/auth-status`, {
+      credentials: 'include'
     });
+    
+    if (!response.ok) {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
     
     const data = await response.json();
     
     if (data.authenticated) {
       updateTimeline(data.user.status);
-      // You can now also access other user data:
-      // data.user.email, data.user.personalInfo, etc.
     } else {
       window.location.href = "../Login/login.html";
     }
   } catch (error) {
     console.error('Error checking auth status:', error);
-    // Don't redirect on error, just handle it gracefully
-    // You could show an error message to the user instead
-    // Example:
-    // showErrorNotification("Failed to check authentication status. Please try again later.");
+    // Handle error gracefully
   }
 }
 
