@@ -195,53 +195,51 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Login
-  document.getElementById("loginForm")?.addEventListener("submit", async (event) => {
-    event.preventDefault();
+document.getElementById("loginForm")?.addEventListener("submit", async (event) => {
+  event.preventDefault();
 
-    const email = document.getElementById("loginEmail").value.trim().toLowerCase();
-    const password = document.getElementById("loginPassword").value;
+  const email = document.getElementById("loginEmail").value.trim().toLowerCase();
+  const password = document.getElementById("loginPassword").value;
 
-    if (!email || !password) {
-      showNotification("Please enter both email and password.");
-      return;
+  if (!email || !password) {
+    showNotification("Please enter both email and password.", "error");
+    return;
+  }
+
+  const submitBtn = event.target.querySelector('button[type="submit"]');
+  const originalBtnText = submitBtn.textContent;
+  submitBtn.disabled = true;
+  submitBtn.textContent = "Logging in...";
+
+  try {
+    const response = await fetch(`${BACKEND_URL}/api/login`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ email, password }),
+      credentials: "include",
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error(data.error || "Login failed");
     }
 
-    const submitBtn = event.target.querySelector('button[type="submit"]');
-    const originalBtnText = submitBtn.textContent;
-    submitBtn.disabled = true;
-    submitBtn.textContent = "Logging in...";
-
-    try {
-      const response = await fetch(`${BACKEND_URL}/login`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, password }),
-        credentials: "include",
-      });
-
-      const contentType = response.headers.get("content-type") || "";
-      const isJson = contentType.includes("application/json");
-      const responseBody = isJson ? await response.json() : await response.text();
-
-      if (!response.ok) {
-        const errorMessage = isJson
-          ? responseBody?.error || "Login failed"
-          : `Login failed: ${responseBody}`;
-        throw new Error(errorMessage);
-      }
-
-      showNotification("Login successful!");
-      localStorage.setItem("userId", responseBody.data.userId);
-      localStorage.setItem("userEmail", responseBody.data.email);
-      window.location.href = "https://ifldefrontend-production.up.railway.app/frontend/client/applicant/timeline/timeline.html";
-    } catch (error) {
-      console.error("Login error:", error);
-      showNotification(error.message || "Login failed. Please try again.");
-    } finally {
-      submitBtn.disabled = false;
-      submitBtn.textContent = originalBtnText;
-    }
-  });
+    showNotification("Login successful!", "success");
+    localStorage.setItem("userId", data.data.userId);
+    localStorage.setItem("userEmail", data.data.email);
+    localStorage.setItem("applicantId", data.data.applicantId);
+    
+    window.location.href = "https://ifldefrontend-production.up.railway.app/frontend/client/applicant/timeline/timeline.html";
+    
+  } catch (error) {
+    console.error("Login error:", error);
+    showNotification(error.message || "Login failed. Please try again.", "error");
+  } finally {
+    submitBtn.disabled = false;
+    submitBtn.textContent = originalBtnText;
+  }
+    });
 });
 
 function showNotification(message, type = "info") {
